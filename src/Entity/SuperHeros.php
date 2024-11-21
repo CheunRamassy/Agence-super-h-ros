@@ -22,7 +22,7 @@ class SuperHeros
     private ?string $alterEgo = null;
 
     #[ORM\Column]
-    private ?bool $isAvailable = null;
+    private ?bool $available = null;
 
     #[ORM\Column]
     private ?int $energyLevel = null;
@@ -83,14 +83,14 @@ class SuperHeros
         return $this;
     }
 
-    public function isAvailable(): ?bool
+    public function Available(): ?bool
     {
-        return $this->isAvailable;
+        return $this->available;
     }
 
-    public function setAvailable(bool $isAvailable): static
+    public function setAvailable(bool $available): static
     {
-        $this->isAvailable = $isAvailable;
+        $this->available = $available;
 
         return $this;
     }
