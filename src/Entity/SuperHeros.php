@@ -54,6 +54,11 @@ class SuperHeros
         $this->teamsMembers = new ArrayCollection();
     }
 
+    // public function __toString()
+    // {
+    //     return $this->getName() . ' ' . $this->getAlterEgo();
+    // }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -199,5 +204,6 @@ class SuperHeros
 
         return $this;
     }
+
 
 }

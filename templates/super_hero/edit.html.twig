@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title ~ heros.name %}{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<h1>{{hero.name}}</h1>
+
+{{ form_start(form) }} 
+    {# {{form_widget(form)}}   #}
+    {{form_row(form.name)}}
+    {{form_row(form.alterEgo)}}
+    {# {{form_widget(form.available)}} #}
+    {{form_row(form.energyLevel)}}
+    {{form_row(form.biography)}}
+    {{form_row(form.imageName)}}
+    {{form_row(form.createdAt)}}
+{{ form_end(form) }}
+{# {{ form(form) }} #}
+{% endblock %}
