@@ -1,9 +1,18 @@
 body {
     background-color: skyblue;
 }
+.container-flex{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+}
+.container-bloc{
+    margin:25px;    
+}
 .card {
-    width: 280px;
-    height: 150px;
+
+    width: 320px;
+    height: fit-content;
     background: rgb(17, 4, 134);
     border-radius: 15px;
     box-shadow: rgb(0,0,0,0.7) 5px 10px 50px ,rgb(0,0,0,0.7) -5px 0px 250px;

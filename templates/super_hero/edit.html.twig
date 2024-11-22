@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title ~ heros.name %}{% endblock %}
+{% block title %}{{hero.name}}{% endblock %}
 
 {% block body %}
 <style>
@@ -21,4 +21,6 @@
     {{form_row(form.createdAt)}}
 {{ form_end(form) }}
 {# {{ form(form) }} #}
+<a class="btn btn-primary"  href= "{{ path('show_hero') }}">Annuler</a>
+
 {% endblock %}
