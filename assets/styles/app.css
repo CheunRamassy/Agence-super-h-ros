@@ -1,5 +1,10 @@
 body {
-    background-color: skyblue;
+    background-color: #00264d;
+    color:white;
+}
+a{
+  text-decoration: none;
+  color:white;
 }
 .container-flex{
     display:flex;
@@ -11,8 +16,8 @@ body {
 }
 .card {
 
-    width: 320px;
-    height: fit-content;
+    width: 340px;
+    height: 250px;
     background: rgb(17, 4, 134);
     border-radius: 15px;
     box-shadow: rgb(0,0,0,0.7) 5px 10px 50px ,rgb(0,0,0,0.7) -5px 0px 250px;

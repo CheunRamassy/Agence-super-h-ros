@@ -17,15 +17,20 @@ class SuperHeroType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'name'
+                'label' => 'Nom'
             ])
-            ->add('alterEgo', TextType::class)
+            ->add('alterEgo', TextType::class, [
+                'label' => 'Pouvoir'
+            ])
             ->add('available')
             ->add('energyLevel')
-            ->add('biography',TextType::class)
+            ->add('biography',TextType::class, [
+                'label' => 'Biographie'
+            ])
             ->add('imageName')
             ->add('createdAt', null, [
                 'widget' => 'single_text',
+                'label' => 'Date de création'
             ])
             // ->add('teamsMembers', EntityType::class, [
             //     'class' => Team::class,
