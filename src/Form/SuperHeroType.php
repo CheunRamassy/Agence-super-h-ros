@@ -37,7 +37,9 @@ class SuperHeroType extends AbstractType
             //     'choice_label' => 'name',
             //     'multiple' => true,
             // ])
-            ->add('button', SubmitType::class)
+            ->add('button', SubmitType::class, [
+                'label' => 'Enregistrer'
+            ])
         ;
     }
 
