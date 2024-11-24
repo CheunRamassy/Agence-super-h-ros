@@ -3,18 +3,42 @@
 {% block title %}Hello TeamController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Users/cdark/Documents/Expernet/TP/Symfony/Agence-super-h-ros/src/Controller/TeamController.php</code></li>
-        <li>Your template at <code>C:/Users/cdark/Documents/Expernet/TP/Symfony/Agence-super-h-ros/templates/team/index.html.twig</code></li>
-    </ul>
+<div class="container-xl">
+  <h1 class="display-3">Team</h1>
 </div>
+
+<div class="container-xl">
+  <div class="d-flex flex-row-reverse">
+  <a class="btn btn-primary" href= "{{ path('create_team') }}"type="button" >Ajouter une team</a>
+  </div>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+        <th scope="col">Nom</th>
+        <th scope="col">Leader</th>
+        <th scope="col">Membre</th>
+        <th scope="col">Date de création</th>
+        <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    {% for team in teams %}
+        <th scope="row">1</th>
+        <td>{{team.name}}</td>
+        <td>{{team.leader}}</td>
+        <td>{{team.members}}</td>
+        <td>{{team.createdAt}}</td>
+        <td><a class="btn btn-primary" href= "{{ path('edit_team') }}"type="button" >Modifier</a></td>
+        <td>  <a class="btn btn-primary" href= "{{ path('remove_team') }}"type="button" >Supprimer</a></td>
+
+
+
+  </div>
+
+    </tr>
+    {% endfor %}
 {% endblock %}
