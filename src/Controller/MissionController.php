@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Mission;
+use App\Form\MissionType;
 use App\Repository\MissionRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -36,7 +37,7 @@ class MissionController extends AbstractController
     public function create(Request $request, EntityManagerInterface $em): Response
     {
         $mission= new Mission();
-        $form= $this->createForm(TeamType::class, $mission);
+        $form= $this->createForm(MissionType::class, $mission);
 
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
@@ -56,7 +57,7 @@ class MissionController extends AbstractController
     public function edit(int $id, Request $request, EntityManagerInterface $em , Mission $missions): Response
     {
         $mission=$this->missionrepository->find($id);
-        $form= $this->createForm(TeamType::class, $mission);
+        $form= $this->createForm(MissionType::class, $mission);
 
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
