@@ -51,13 +51,17 @@ class SuperHeroController extends AbstractController
         ]);
     }
     #[Route('/edit/{id}', name: 'edit_hero')]
-    public function edit(int $id, Request $request, EntityManagerInterface $em ): Response
+    public function edit(int $id, Request $request, EntityManagerInterface $em , SuperHeros $heros): Response
     {
         $hero=$this->superherosrepository->find($id);
         $form= $this->createForm(SuperHeroType::class, $hero);
 
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
+            $file = $form->get('imageName')->getData();
+            $filename = $heros->getName() . '.' . $file->getClientOriginalExtension();
+            $file->move($this->getParameter('kernel.project_dir') . '/public/heros/images', $filename);
+            $heros->setImageName($filename);
             $hero=$form->getData();
             $em->persist($hero);
             $em->flush();
@@ -66,6 +70,7 @@ class SuperHeroController extends AbstractController
         return $this->render('super_hero/edit.html.twig', [
             'form' => $form,
             'hero' => $hero,
+            'heros' => $heros,
         ]);
     }
     #[Route('/remove/{id}', name: 'remove_hero')]

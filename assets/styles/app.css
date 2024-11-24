@@ -1,19 +1,55 @@
 body {
-    background-color: #00264d;
+    background-color: #003366;
     color:white;
+}
+h1{
+
 }
 a{
   text-decoration: none;
   color:white;
 }
-.container-flex{
+
+img{
+  width: 100px;
+}
+.container-flex-col{
+  display:flex;
+  flex-direction: column;
+  align-items: last baseline;
+}
+ .container-margin{
+  margin-left: auto;
+  margin-right: auto;
+ }
+.container-flex-row{
     display:flex;
     flex-direction: row;
     align-items: center;
 }
+
+
 .container-bloc{
     margin:25px;    
 }
+.container-xl{
+  margin-top: 5%;
+}
+
+.container-xxl{
+  margin-top: 5%;
+  margin-bottom: 5%;
+  border-radius: 15px;
+  box-shadow: rgb(0,0,0,0.7) 5px 10px 50px ,rgb(0,0,0,0.7) -5px 0px 250px;
+  background-color: #001a33;
+}
+.col{
+  margin-top: 5%;
+  margin-right: 5%;
+  margin-bottom: 5%;
+}
+/* CSS carte de visite héros */
+
 .card {
 
     width: 340px;
