@@ -17,10 +17,16 @@ class MissionType extends AbstractType
     {
         $builder
             ->add('title', TextType::class, [
-                'label' => 'Nom'])
+                'label' => 'titre'])
             ->add('description', TextType::class, [
                 'label' => 'Description'])
+            ->add('location')
+            ->add('dangerLevel')
             ->add('status')
+            ->add('assignedTeam', EntityType::class, [
+                'class' => Team::class,
+                'choice_label' => 'name',
+            ])
             ->add('startAt', null, [
                 'widget' => 'single_text',
                 'label' => 'Date de début'
@@ -28,12 +34,6 @@ class MissionType extends AbstractType
             ->add('endAt', null, [
                 'widget' => 'single_text',
                 'label' => 'Date de fin'
-            ])
-            ->add('location')
-            ->add('dangerLevel')
-            ->add('assignedTeam', EntityType::class, [
-                'class' => Team::class,
-                'choice_label' => 'name',
             ])
             ->add('button', SubmitType::class, [
                 'label' => 'Enregistrer'
