@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Team;
+use App\Form\TeamType;
 use App\Repository\TeamRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -32,7 +33,7 @@ class TeamController extends AbstractController
     public function create(Request $request, EntityManagerInterface $em): Response
     {
         $team= new Team();
-        $form= $this->createForm(SuperHeroType::class, $team);
+        $form= $this->createForm(TeamType::class, $team);
 
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
@@ -52,11 +53,11 @@ class TeamController extends AbstractController
     public function edit(int $id, Request $request, EntityManagerInterface $em , Team $teams): Response
     {
         $team=$this->teamrepository->find($id);
-        $form= $this->createForm(SuperHeroType::class, $team);
+        $form= $this->createForm(TeamType::class, $team);
 
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
-            $hero=$form->getData();
+            $team=$form->getData();
             $em->persist($team);
             $em->flush();
             return $this->redirectToRoute('show_team');
