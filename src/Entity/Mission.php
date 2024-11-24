@@ -38,10 +38,7 @@ class Mission
     #[ORM\ManyToOne(inversedBy: 'missions')]
     private ?Team $assignedTeam = null;
 
-    public function __toString()
-    {
-        return $this->getAssignedTeam();
-    }
+
 
     public function getId(): ?int
     {
@@ -142,5 +139,9 @@ class Mission
         $this->assignedTeam = $assignedTeam;
 
         return $this;
+    }
+    public function __toString()
+    {
+        return $this->getStatus();
     }
 }

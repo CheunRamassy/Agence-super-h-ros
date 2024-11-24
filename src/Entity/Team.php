@@ -27,10 +27,10 @@ class Team
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     private ?Mission $currentMission = null;
 
-    public function __toString()
-    {
-        return $this->getMembers(). ''. $this->getLeader();
-    }
+    // public function __toString()
+    // {
+    //     return $this->getMembers(). ''. $this->getLeader();
+    // }
 
     /**
      * @var Collection<int, Mission>

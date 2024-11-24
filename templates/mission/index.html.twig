@@ -20,7 +20,7 @@
         <th scope="col">Description</th>
         <th scope="col">Location</th>
         <th scope="col">Difficulté</th>
-        <th scope="col">Status</th>
+        <th scope="col">Etat</th>
         <th scope="col">Équipe associé</th>
         <th scope="col">Date de début</th>
         <th scope="col">Date de fin</th>
@@ -30,11 +30,12 @@
   <tbody>
     <tr>
     {% for mission in missions %}
-        <th scope="row">1</th>
+        {# <th scope="row">1</th> #}
         <td>{{mission.title}}</td>
         <td>{{mission.description}}</td>
         <td>{{mission.location}}</td>
         <td>{{mission.dangerLevel}}</td>
+        <td>{{mission.status.name}}</td>
         <td>{{mission.assignedTeam.name}}</td>
         <td>{{mission.startAt |date}}</td>
         <td>{{mission.endAt |date}}</td>
@@ -42,10 +43,10 @@
         <td><a class="btn btn-primary" href= "{{ path('edit_mission', {id: mission.id}) }}"type="button" >Modifier</a>
         <a class="btn btn-primary" href= "{{ path('remove_mission', {id: mission.id}) }}"type="button" >Supprimer</a></td>
     </tr>
-
+{% endfor %}
 
 
   </div>
-{% endfor %}
+
     </tr>
 {% endblock %}

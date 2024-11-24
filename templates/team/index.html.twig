@@ -21,7 +21,6 @@
         <th scope="col">Leader</th>
         <th scope="col">Membre</th>
         <th scope="col">Mission récente</th>
-        <th scope="col">Etat</th>
         <th scope="col">Date de création</th>
         <th scope="col">Action</th>
     </tr>
@@ -29,20 +28,28 @@
   <tbody>
     <tr>
     {% for team in teams %}
-        <th scope="row">1</th>
+        {# <th scope="row"></th> #}
         <td>{{team.name}}</td>
-        <td>{{team.leader}}</td>
-        <td>{{team.members}}</td>
-        <td>{{team.currentMission}}</td>
-        <td>{{team.active}}</td>
-        <td>{{team.createdAt}}</td>
-        <td><a class="btn btn-primary" href= "{{ path('edit_team', {id: team.id}) }}"type="button" >Modifier</a></td>
-        <td>  <a class="btn btn-primary" href= "{{ path('create_team', {id: team.id}) }}"type="button" >Supprimer</a></td>
+        <td>{{team.leader.name}}</td>
 
+        {% for member in team.members %}
+        <td>{{member.name}}</td>
+        {% endfor %}
+
+        {% for currentMission in team.currentMission %}
+        <td>{{currentMission.name}}</td>
+        {% endfor %}
+
+        <td>{{team.active}}</td>
+        <td>{{team.createdAt |date}}</td>
+        <td><a class="btn btn-primary" href= "{{ path('edit_team', {id: team.id}) }}"type="button" >Modifier</a>
+        <a class="btn btn-primary" href= "{{ path('create_team', {id: team.id}) }}"type="button" >Supprimer</a></td>
+
+    {% endfor %}
 
 
   </div>
 
     </tr>
-    {% endfor %}
+
 {% endblock %}
