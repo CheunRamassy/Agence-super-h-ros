@@ -38,6 +38,11 @@ class Mission
     #[ORM\ManyToOne(inversedBy: 'missions')]
     private ?Team $assignedTeam = null;
 
+    public function __toString()
+    {
+        return $this->getAssignedTeam();
+    }
+
     public function getId(): ?int
     {
         return $this->id;

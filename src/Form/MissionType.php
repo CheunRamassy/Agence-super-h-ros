@@ -3,9 +3,11 @@
 namespace App\Form;
 
 use App\Entity\Mission;
+use App\Entity\MissionStatus;
 use App\Entity\Team;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EnumType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -17,12 +19,14 @@ class MissionType extends AbstractType
     {
         $builder
             ->add('title', TextType::class, [
-                'label' => 'titre'])
+                'label' => 'Titre'])
             ->add('description', TextType::class, [
                 'label' => 'Description'])
             ->add('location')
             ->add('dangerLevel')
-            ->add('status')
+            ->add('status', EnumType::class, [
+                'class' => MissionStatus::class,
+            ])
             ->add('assignedTeam', EntityType::class, [
                 'class' => Team::class,
                 'choice_label' => 'name',

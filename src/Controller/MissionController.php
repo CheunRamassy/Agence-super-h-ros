@@ -25,8 +25,9 @@ class MissionController extends AbstractController
     #[Route('/show', name: 'show_mission')]
     public function index(): Response
     {
-
+        // $missions = new Mission();
         $mission=$this->missionrepository->findall();
+        // dd($mission[0]->getAssignedTeam());
 
         return $this->render('mission/index.html.twig', [
             'missions' => $mission,
@@ -66,7 +67,7 @@ class MissionController extends AbstractController
             $em->flush();
             return $this->redirectToRoute('show_mission');
         }
-        return $this->render('team/edit.html.twig', [
+        return $this->render('mission/edit.html.twig', [
             'form' => $form,
             'mission' => $mission,
             'missions' => $missions,

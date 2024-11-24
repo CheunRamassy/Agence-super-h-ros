@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{mission.name}}{% endblock %}
+{% block title %}{{mission.title}}{% endblock %}
 
 {% block body %}
 
@@ -8,18 +8,19 @@
     <div class="container text-center">
         <div class="row align-items-start">
             <div class="col">
-                <h1>{{hero.name}}</h1>
+                <h1>Mission</h1>
 
                 {{ form_start(form) }} 
 
                         {{form_row(form.title)}}
                         {{form_row(form.description)}}
+                        {{form_row(form.status)}}
                         {{form_row(form.location)}}
                         {{form_row(form.dangerLevel)}}
                         {{form_row(form.assignedTeam)}}
                         {{form_row(form.startAt)}}
                         {{form_row(form.endAt)}}
-                        
+
                         {{form_row(form.button)}}
                         <a class="btn btn-primary"  href= "{{ path('show_mission') }}">Annuler</a>
 
