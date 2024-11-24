@@ -42,16 +42,27 @@
         {# <div class="container-flex-col"> #}
                 <div class="card">
                   <a href= "{{ path('edit_hero', {id: hero.id}) }}">
-                    <p class="time-text"><span>11:11</span><span class="time-sub-text">{{hero.name}}</span></p>
-                    <p class="day-text">    
-                        {{hero.alterEgo}}
-                        {{hero.available}}
-                        {{hero.energyLevel}}
-                        {{hero.biography}}
-                        {{hero.createdAt| date}}
-                        </p>
                   
-                    <a href= "{{ path('remove_hero', {id: hero.id}) }}"><img src="x.png"></a>
+                    <p class="time-text"><span>{{hero.name}}</span><span class="time-sub-text">{{hero.alterEgo}}</span></p>
+                    <a href= "{{ path('remove_hero', {id: hero.id}) }}"><img src="x.png"></a> 
+                    <p class="day-text">    
+
+                          <div class="row align-items-start">
+                            <div class="col">
+                              {{hero.available}}
+                            </div>
+                          <div class="col ">
+                            {{hero.biography}}
+                          </div>
+                        <div class="container-md">
+                        Energie: {{hero.energyLevel}}
+                        </div>
+                        <div class="container-md">
+                        {{hero.createdAt| date}}
+                        </div>
+                        </p>
+                  </div>
+                    
                   </a>
                 </div>
           </div>
