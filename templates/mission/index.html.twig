@@ -29,7 +29,7 @@
   </thead>
   <tbody>
     <tr>
-    {% for team in teams %}
+    {% for mission in missions %}
         <th scope="row">1</th>
         <td>{{team.title}}</td>
         <td>{{team.description}}</td>
@@ -45,6 +45,6 @@
 
 
   </div>
-
+{% endfor %}
     </tr>
 {% endblock %}
