@@ -48,6 +48,9 @@ class SuperHeros
     #[ORM\ManyToMany(targetEntity: Team::class, mappedBy: 'members')]
     private Collection $teamsMembers;
 
+    #[ORM\OneToOne(mappedBy: 'powerHero', cascade: ['persist', 'remove'])]
+    private ?Power $powerHero = null;
+
     public function __construct()
     {
         $this->teams = new ArrayCollection();
@@ -201,6 +204,28 @@ class SuperHeros
         if ($this->teamsMembers->removeElement($teamsMember)) {
             $teamsMember->removeMember($this);
         }
+
+        return $this;
+    }
+
+    public function getPowerHero(): ?Power
+    {
+        return $this->powerHero;
+    }
+
+    public function setPowerHero(?Power $powerHero): static
+    {
+        // unset the owning side of the relation if necessary
+        if ($powerHero === null && $this->powerHero !== null) {
+            $this->powerHero->setPowerHero(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($powerHero !== null && $powerHero->getPowerHero() !== $this) {
+            $powerHero->setPowerHero($this);
+        }
+
+        $this->powerHero = $powerHero;
 
         return $this;
     }

@@ -24,7 +24,7 @@ class TeamController extends AbstractController
     {
 
         $team=$this->teamrepository->findall();
-        // dd($team[0]->getMembers()->getName());
+        // dd($team[0]->getCurrentMission()->getTitle());
 
         return $this->render('team/index.html.twig', [
             'teams' => $team,

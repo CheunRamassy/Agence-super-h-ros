@@ -22,6 +22,9 @@ class Power
     #[ORM\Column]
     private ?int $level = null;
 
+    #[ORM\OneToOne(inversedBy: 'powerHero', cascade: ['persist', 'remove'])]
+    private ?SuperHeros $powerHero = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -62,4 +65,18 @@ class Power
 
         return $this;
     }
+
+    public function getPowerHero(): ?SuperHeros
+    {
+        return $this->powerHero;
+    }
+
+    public function setPowerHero(?SuperHeros $powerHero): static
+    {
+        $this->powerHero = $powerHero;
+
+        return $this;
+    }
+
+   
 }
