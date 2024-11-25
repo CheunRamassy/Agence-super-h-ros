@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pouvoir{% endblock %}
+
+{% block body %}
+
+<div class="container-xxl">
+    <div class="container text-center">
+        <div class="row align-items-start">
+            <div class="col">
+                <h1>Entré un nouveau pouvoir</h1>
+                {{ form_start(form) }} 
+
+                        <td>{{form_row(form.name)}}</td>
+                        <td>{{form_row(form.description)}}</td>
+                        <td>{{form_row(form.level)}}</td>
+                        <td>{{form_row(form.powerHero)}}</td>
+
+                        {{form_row(form.button)}}
+                        <a class="btn btn-primary"  href= "{{ path('show_power') }}">Annuler</a>
+
+                {{ form_end(form) }}
+            </div>
+            
+        </div>
+    </div>
+</div>
+{% endblock %}

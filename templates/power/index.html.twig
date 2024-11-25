@@ -1,20 +1,46 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PowerController!{% endblock %}
+{% block title %}Pouvoir{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Users/cdark/Documents/Expernet/TP/Symfony/Agence-super-h-ros/src/Controller/PowerController.php</code></li>
-        <li>Your template at <code>C:/Users/cdark/Documents/Expernet/TP/Symfony/Agence-super-h-ros/templates/power/index.html.twig</code></li>
-    </ul>
+<div class="container-xl">
+  <h1 class="display-3">Pouvoir</h1>
 </div>
+
+<div class="container-xl">
+  <div class="d-flex flex-row-reverse">
+  <a class="btn btn-primary" href= "{{ path('create_power') }}"type="button" >Ajouter une Mission</a>
+  </div>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+        <th scope="col">Nom</th>
+        <th scope="col">Description</th>
+        <th scope="col">Niveaux</th>
+        <th scope="col">Héros associé</th>
+        <th scope="col">Action</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    {% for power in powers %}
+        {# <th scope="row">1</th> #}
+        <td>{{power.name}}</td>
+        <td>{{power.description}}</td>
+        <td>{{power.level}}</td>
+        <td>{{power.powerHero.name}}</td>
+
+
+        <td><a class="btn btn-primary" href= "{{ path('edit_power', {id: power.id}) }}"type="button" >Modifier</a>
+        <a class="btn btn-primary" href= "{{ path('remove_power', {id: power.id}) }}"type="button" >Supprimer</a></td>
+    </tr>
+{% endfor %}
+
+
+  </div>
+
+    </tr>
 {% endblock %}

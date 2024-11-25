@@ -23,7 +23,7 @@ class PowerType extends AbstractType
             ->add('level')
             ->add('powerHero', EntityType::class, [
                 'class' => SuperHeros::class,
-                'choice_label' => 'id',
+                'choice_label' => 'name',
             ])
             ->add('button', SubmitType::class, [
                 'label' => 'Enregistrer'
