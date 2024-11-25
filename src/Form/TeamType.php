@@ -31,7 +31,7 @@ class TeamType extends AbstractType
             ])
             ->add('currentMission', EntityType::class, [
                 'class' => Mission::class,
-                'choice_label' => 'name',
+                'choice_label' => 'title',
                 'label' => 'Mission récente'
             ])
             ->add('createdAt', null, [

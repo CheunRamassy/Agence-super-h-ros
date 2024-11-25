@@ -32,9 +32,9 @@
         <td>{{team.name}}</td>
         <td>{{team.leader.name}}</td>
 
-        {% for member in team.members %}
-        <td>{{member.name}}</td>
-        {% endfor %}
+         <td>{% for member in team.members %}
+         {{member.name}}
+        {% endfor %}</td>
 
         {% for currentMission in team.currentMission %}
         <td>{{currentMission.name}}</td>
@@ -44,12 +44,12 @@
         <td>{{team.createdAt |date}}</td>
         <td><a class="btn btn-primary" href= "{{ path('edit_team', {id: team.id}) }}"type="button" >Modifier</a>
         <a class="btn btn-primary" href= "{{ path('create_team', {id: team.id}) }}"type="button" >Supprimer</a></td>
-
+ </tr>
     {% endfor %}
 
 
   </div>
 
-    </tr>
+   
 
 {% endblock %}
