@@ -22,8 +22,8 @@ class Power
     #[ORM\Column]
     private ?int $level = null;
 
-    // #[ORM\Column(nullable: true)]
-    #[ORM\OneToOne(inversedBy: 'powerHero', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: true)]
+    #[ORM\OneToOne(inversedBy: 'powerHero',  cascade: ['persist', 'remove'])]
     private ?SuperHeros $powerHero = null;
 
     public function getId(): ?int

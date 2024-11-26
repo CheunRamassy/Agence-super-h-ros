@@ -50,28 +50,68 @@ img{
 }
 /* CSS carte de visite héros */
 
-.card {
-
-    width: 340px;
-    height: 250px;
-    background: rgb(17, 4, 134);
-    border-radius: 15px;
-    box-shadow: rgb(0,0,0,0.7) 5px 10px 50px ,rgb(0,0,0,0.7) -5px 0px 250px;
-    display: flex;
-    color: white;
-    justify-content: center;
-    position: relative;
-    flex-direction: column;
-    background: linear-gradient(to right, rgb(20, 30, 48), rgb(36, 59, 85));
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    overflow: hidden;
-  }
+ /* Card principale */
+ .card {
+  width: 100%; /* Occupe toute la largeur de son conteneur */
+  max-width: 340px; /* Limite la largeur maximale */
+  height: 440px;
+  background: linear-gradient(to right, rgb(20, 30, 48), rgb(36, 59, 85));
+  border-radius: 15px;
+  box-shadow: rgb(0, 0, 0, 0.7) 5px 10px 50px, rgb(0, 0, 0, 0.7) -5px 0px 250px;
+  padding: 20px;
+  color: white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
   
   .card:hover {
     box-shadow: rgb(0,0,0) 5px 10px 50px ,rgb(0,0,0) -5px 0px 250px;
   }
-  
+
+  .card-header {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.alter-ego {
+    font-size: 16px;
+    color: #ccc;
+    margin-bottom: 15px;
+}
+
+.card-content {
+    text-align: left;
+    font-size: 14px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.card-content div {
+    margin-bottom: 10px;
+}
+
+.card-footer {
+    margin-top: auto;
+    font-size: 12px;
+    color: #ddd;
+    text-align: center;
+}
+
+.hero-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    object-fit: cover;
+}
   .time-text {
     font-size: 50px;
     margin-top: 0px;
