@@ -22,17 +22,20 @@ class TeamType extends AbstractType
             ->add('leader', EntityType::class, [
                 'class' => SuperHeros::class,
                 'choice_label' => 'name',
+                'placeholder' => 'Selectionner un héro',
             ])
             ->add('members', EntityType::class, [
                 'class' => SuperHeros::class,
                 'choice_label' => 'name',
                 'multiple' => true,
-                'label' => 'Membres'
+                'label' => 'Membres',
+                'placeholder' => 'Selectionner un ou plusieurs héros',
             ])
             ->add('currentMission', EntityType::class, [
                 'class' => Mission::class,
                 'choice_label' => 'title',
-                'label' => 'Mission en cours'
+                'label' => 'Mission en cours',
+                'placeholder' => 'Selectionner une mission',
             ])
             ->add('createdAt', null, [
                 'widget' => 'single_text',

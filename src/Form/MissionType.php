@@ -7,7 +7,9 @@ use App\Entity\MissionStatus;
 use App\Entity\Team;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\EnumType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -22,14 +24,23 @@ class MissionType extends AbstractType
                 'label' => 'Titre'])
             ->add('description', TextType::class, [
                 'label' => 'Description'])
-            ->add('location')
-            ->add('dangerLevel')
+            ->add('location', CountryType::class, [
+                'label' => 'Localisation',
+                'placeholder' => 'Selectionner un pays',
+            ])
+            ->add('dangerLevel', IntegerType::class, [
+                'label' => 'Niveau de danger',
+            ])
             ->add('status', EnumType::class, [
                 'class' => MissionStatus::class,
+                'placeholder' => 'Selectionner un status',
+                'label' => 'Etat'
             ])
             ->add('assignedTeam', EntityType::class, [
                 'class' => Team::class,
                 'choice_label' => 'name',
+                'placeholder' => 'Selectionner une équipe',
+                'label' => 'Associer une équipe'
             ])
             ->add('startAt', null, [
                 'widget' => 'single_text',

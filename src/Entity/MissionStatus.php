@@ -5,11 +5,11 @@ namespace App\Entity;
 enum MissionStatus:string
 {
 
-    case PENDING="EN ATTENTE";
-    case IN_PROGRESS="COMMENCE";
-    case CANCELLED="ANNULEE";
-    case COMPLETED="FINIE";
-    case FAILED="ECHOUEE";
+    case EN_ATTENTE="PENDING";
+    case COMMENCE="IN_PROGRESS";
+    case ANNULEE="CANCELLED";
+    case FINIE="COMPLETED";
+    case ECHOUEE="FAILED";
 
 }
 

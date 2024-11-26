@@ -8,6 +8,7 @@ use App\Entity\Team;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -35,10 +36,13 @@ class SuperHeroType extends AbstractType
             ->add('powerHero', EntityType::class, [
                 'class' => Power::class,
                 'choice_label' => 'name',
-                'label' => 'Pouvoir'
+                'label' => 'Pouvoir',
+                'placeholder' => 'Selectionner un pouvoir',
             ])
             ->add('available')
-            ->add('energyLevel')
+            ->add('energyLevel', IntegerType::class, [
+                'label' => "Niveau d'énergie"
+            ])
             ->add('biography',TextType::class, [
                 'label' => 'Biographie'
             ])
