@@ -10,9 +10,6 @@ a{
   color:white;
 }
 
-img{
-  width: 100px;
-}
 .container-flex-col{
   display:flex;
   flex-direction: column;
@@ -106,9 +103,16 @@ img{
 }
 
 .hero-image {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  border-radius: 10%;
+  margin-bottom: 15px;
+  object-fit: cover;
+}
+.hero-image-profile {
+    width: 500px;
+    height: 700px;
+    border-radius: 10%;
     margin-bottom: 15px;
     object-fit: cover;
 }

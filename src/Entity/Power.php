@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\PowerRepository;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PowerRepository::class)]
@@ -20,6 +21,7 @@ class Power
     private ?string $description = null;
 
     #[ORM\Column]
+    #[Assert\Range(min: 0, max: 5)]
     private ?int $level = null;
 
     #[ORM\JoinColumn(nullable: true)]

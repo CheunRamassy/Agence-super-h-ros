@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\SuperHerosRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: SuperHerosRepository::class)]
@@ -25,7 +26,9 @@ class SuperHeros
     private ?bool $available = null;
 
     #[ORM\Column]
+    #[Assert\Range(min: 0, max: 100)]
     private ?int $energyLevel = null;
+
 
     #[ORM\Column(length: 255)]
     private ?string $biography = null;

@@ -26,6 +26,7 @@ class SuperHeroType extends AbstractType
             ->add('imageName', FileType::class, [
                 'mapped' => false,
                 'label' => 'Image',
+                'required' => false,
                 'constraints' => [
                     new Image()
                 ]

@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\TeamRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: TeamRepository::class)]
@@ -34,12 +35,14 @@ class Team
     private Collection $missions;
 
     #[ORM\ManyToOne(inversedBy: 'teams')]
+    #[Assert\Range(min: 80, max: 100)]
     private ?SuperHeros $leader = null;
 
     /**
      * @var Collection<int, SuperHeros>
      */
     #[ORM\ManyToMany(targetEntity: SuperHeros::class, inversedBy: 'teamsMembers')]
+    #[Assert\Range(min: 2, max: 5)]
     private Collection $members;
 
     public function __construct()

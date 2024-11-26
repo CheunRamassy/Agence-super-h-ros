@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\MissionRepository;
 use Doctrine\DBAL\Types\Types;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: MissionRepository::class)]
@@ -33,6 +34,7 @@ class Mission
     private ?string $location = null;
 
     #[ORM\Column]
+    #[Assert\Range(min: 0, max: 5)]
     private ?int $dangerLevel = null;
 
     #[ORM\ManyToOne(inversedBy: 'missions')]

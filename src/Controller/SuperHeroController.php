@@ -39,6 +39,10 @@ class SuperHeroController extends AbstractController
 
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
+            $file = $form->get('imageName')->getData();
+            $filename = $hero->getId() . '.' . $file->getClientOriginalExtension();
+            $file->move($this->getParameter('kernel.project_dir') . '/public/heros/images', $filename);
+            $hero->setImageName($filename);
             $hero=$form->getData();
             $em->persist($hero);
             $em->flush();
@@ -55,15 +59,16 @@ class SuperHeroController extends AbstractController
     {
         $hero=$this->superherosrepository->find($id);
         $form= $this->createForm(SuperHeroType::class, $hero);
-
+        $file = $form->get('imageName')->getData();
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
-            $file = $form->get('imageName')->getData();
-            $filename = $heros->getName() . '.' . $file->getClientOriginalExtension();
-            $file->move($this->getParameter('kernel.project_dir') . '/public/heros/images', $filename);
-            $heros->setImageName($filename);
-            $hero=$form->getData();
-            $em->persist($hero);
+            
+            if( $file !== null){
+                $filename = $heros->getId() . '.' . $file->getClientOriginalExtension();
+                $file->move($this->getParameter('kernel.project_dir') . '/public/heros/images', $filename);
+                $heros->setImageName($filename);
+                // $em->flush();
+            }           
             $em->flush();
             return $this->redirectToRoute('show_hero');
         }
