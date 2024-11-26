@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\Power;
 use App\Entity\SuperHeros;
 use App\Entity\Team;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -29,6 +30,11 @@ class SuperHeroType extends AbstractType
                 ]
             ])
             ->add('alterEgo', TextType::class, [
+                'label' => 'Identité'
+            ])
+            ->add('powerHero', EntityType::class, [
+                'class' => Power::class,
+                'choice_label' => 'name',
                 'label' => 'Pouvoir'
             ])
             ->add('available')

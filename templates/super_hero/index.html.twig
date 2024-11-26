@@ -8,18 +8,6 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-{# <table>
-  <tr>
-    <td>Nom</td>
-    <td>Tobias</td>
-    <td>Linus</td>
-  </tr>
-  <tr>
-    <td>16</td>
-    <td>14</td>
-    <td>10</td>
-  </tr>
-</table> #}
 <div class="container-xl">
   <h1 class="display-3">Les supers héros de l'agence</h1>
 </div>
@@ -54,6 +42,14 @@
                           <div class="col ">
                             {{hero.biography}}
                           </div>
+
+                        <div class="container-md">
+                        {% if hero.powerHero == null %}
+                          <td> Power: Non assigné </td>
+                        {% else %}
+                          <td> {{hero.powerHero.name}} </td>
+                        {% endif %}
+                        </div>
                         <div class="container-md">
                         Energie: {{hero.energyLevel}}
                         </div>

@@ -48,6 +48,7 @@ class SuperHeros
     #[ORM\ManyToMany(targetEntity: Team::class, mappedBy: 'members')]
     private Collection $teamsMembers;
 
+    // #[ORM\Column(nullable: true)]
     #[ORM\OneToOne(mappedBy: 'powerHero', cascade: ['persist', 'remove'])]
     private ?Power $powerHero = null;
 

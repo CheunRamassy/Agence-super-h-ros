@@ -31,7 +31,11 @@
         <td>{{power.name}}</td>
         <td>{{power.description}}</td>
         <td>{{power.level}}</td>
-        <td>{{power.powerHero.name}}</td>
+        {% if power.powerHero == null %}
+          <td> Non assigné </td>
+        {% else %}
+          <td> {{power.powerHero.name}} </td>
+        {% endif %}
 
 
         <td><a class="btn btn-primary" href= "{{ path('edit_power', {id: power.id}) }}"type="button" >Modifier</a>
