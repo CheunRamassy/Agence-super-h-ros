@@ -7,8 +7,11 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: SuperHerosRepository::class)]
+#[Vich\Uploadable()]
 class SuperHeros
 {
     #[ORM\Id]
@@ -35,6 +38,10 @@ class SuperHeros
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $imageName = null;
+
+    #[Vich\UploadableField(mapping: 'heros', fileNameProperty: 'imageName')]
+    #[Assert\Image()]
+    private ?File $imageNameFile = null;
 
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
@@ -139,6 +146,18 @@ class SuperHeros
     public function setImageName(?string $imageName): static
     {
         $this->imageName = $imageName;
+
+        return $this;
+    }
+
+    public function getImageNameFile(): ?File
+    {
+        return $this->imageNameFile;
+    }
+
+    public function setImageNameFile(?File $imageNameFile): static
+    {
+        $this->imageNameFile = $imageNameFile;
 
         return $this;
     }

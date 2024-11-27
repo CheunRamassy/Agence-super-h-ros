@@ -35,7 +35,7 @@ class Team
     private Collection $missions;
 
     #[ORM\ManyToOne(inversedBy: 'teams')]
-    #[Assert\Range(min: 80, max: 100)]
+    #[Assert\Length(min: 80, max: 100)]
     private ?SuperHeros $leader = null;
 
     /**

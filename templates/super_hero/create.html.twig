@@ -11,11 +11,11 @@
 <div class="container-xxl">
     <div class="container text-center">
         <div class="row align-items-start">
-            <div class="col">
+            {# <div class="col">
                 <p>
                     <img src="heros/images/{{ heros.imageName}}" alt="">
                 </p>
-            </div>
+            </div> #}
             <div class="col">
                 <h1>Créer un héros</h1>
                 {{ form_start(form) }} 
@@ -25,7 +25,7 @@
                         {{form_row(form.powerHero)}}
                         {{form_row(form.energyLevel)}}
                         {{form_row(form.biography)}}
-                        {{form_row(form.imageName)}}
+                        {{form_row(form.imageNameFile)}}
                         {{form_row(form.createdAt)}}
                         {{form_row(form.available)}}
 

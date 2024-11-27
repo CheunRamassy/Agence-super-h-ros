@@ -23,13 +23,10 @@ class SuperHeroType extends AbstractType
             ->add('name', TextType::class, [
                 'label' => 'Nom'
             ])
-            ->add('imageName', FileType::class, [
-                'mapped' => false,
+            ->add('imageNameFile', FileType::class, [
                 'label' => 'Image',
                 'required' => false,
-                'constraints' => [
-                    new Image()
-                ]
+
             ])
             ->add('alterEgo', TextType::class, [
                 'label' => 'Identité'
