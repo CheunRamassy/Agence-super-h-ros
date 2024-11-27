@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DashboardController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="container-xl">
+  <h1 class="display-3">Super Heros League</h1>
+</div>
+
+<div class="container-xl">
+  <div class="d-flex flex-row-reverse">
+  <a class="btn btn-primary" href= "{{ path('create_hero') }}"type="button" >Ajouter un héros</a>
+  </div>
+</div>
+
+<div class="container-xl">
+
+<div class="card-container">
+        <div class="card">
+            <div class="front">
+                <h3>Face Avant</h3>
+                <p>Bienvenue !</p>
+            </div>
+            <div class="back">
+                <h3>Face Arrière</h3>
+                <p>Contenu caché ici.</p>
+            </div>
+        </div>
+    </div>
+  {# <div class="row justify-content-center">
+      {% for hero in heros[0]..heros[2] %}
+        <div class="col-12 col-md-4 col-lg-3"> <!-- Utilise des classes de grille Bootstrap -->
+          <div class="hero-card">
+            <div class="container-xl">
+              <div class="card">
+                <div class="card-header">{{ hero.name }}</div>
+                <img src="/heros/images/{{ heros.imageName }}" alt="" class="hero-image"> <!-- Image de profil -->
+                <div class="alter-ego">{{ hero.alterEgo }}</div>
+                <div class="card-content">
+                  <div><strong>Disponibilité:</strong> {{ hero.available }}</div>
+                  <div><strong>Biographie:</strong> {{ hero.biography }}</div>
+                  <div><strong>Power:</strong> {% if hero.powerHero == null %}Non assigné{% else %}{{ hero.powerHero.name }}{% endif %}</div>
+                  <div><strong>Energie:</strong> {{ hero.energyLevel }}</div>
+                  <div><strong>Créé le:</strong> {{ hero.createdAt | date }}</div>
+                </div>
+                <div class="card-footer">
+                  <a href="{{ path('edit_hero', {id: hero.id}) }}" class="btn btn-outline-light">Modifier</a>
+                  <a href="{{ path('remove_hero', {id: hero.id}) }}" class="btn btn-outline-danger">Supprimer</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div> #}
+</div>
+{% endblock %}

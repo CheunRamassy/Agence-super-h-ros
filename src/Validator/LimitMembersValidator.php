@@ -16,11 +16,11 @@ class LimitMembersValidator extends ConstraintValidator
             return;
         }
 
-        if (Length($constraint->equipe) > constraint->max && length(constraint->equipe) < constraint->min){
-            $this->context->buildViolation($constraint->message)
-            ->setParameter('{{ value }}', $value)
-            ->addViolation();
-        }
+        // if (Length($constraint->equipe) > constraint->max && length(constraint->equipe) < constraint->min){
+        //     $this->context->buildViolation($constraint->message)
+        //     ->setParameter('{{ value }}', $value)
+        //     ->addViolation();
+        // }
 
 
     }
