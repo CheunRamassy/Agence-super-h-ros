@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\EnumType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -22,8 +23,10 @@ class MissionType extends AbstractType
         $builder
             ->add('title', TextType::class, [
                 'label' => 'Titre'])
-            ->add('description', TextType::class, [
-                'label' => 'Description'])
+            ->add('description', TextareaType::class, [
+                'label' => 'Description',
+                'empty_data' => ''
+                ])
             ->add('location', CountryType::class, [
                 'label' => 'Localisation',
                 'placeholder' => 'Selectionner un pays',

@@ -10,10 +10,13 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Image;
+use Vich\UploaderBundle\Form\Type\VichFileType;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class SuperHeroType extends AbstractType
 {
@@ -23,7 +26,7 @@ class SuperHeroType extends AbstractType
             ->add('name', TextType::class, [
                 'label' => 'Nom'
             ])
-            ->add('imageNameFile', FileType::class, [
+            ->add('imageNameFile', VichFileType::class, [
                 'label' => 'Image',
                 'required' => false,
 
@@ -41,8 +44,9 @@ class SuperHeroType extends AbstractType
             ->add('energyLevel', IntegerType::class, [
                 'label' => "Niveau d'énergie"
             ])
-            ->add('biography',TextType::class, [
-                'label' => 'Biographie'
+            ->add('biography',TextareaType::class, [
+                'label' => 'Biographie',
+                'empty_data' => ''
             ])
 
             ->add('createdAt', null, [
