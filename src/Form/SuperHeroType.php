@@ -7,6 +7,7 @@ use App\Entity\SuperHeros;
 use App\Entity\Team;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -27,9 +28,10 @@ class SuperHeroType extends AbstractType
                 'label' => 'Nom'
             ])
             ->add('imageNameFile', VichFileType::class, [
-                'label' => 'Image',
+                'label' => false,
+                'download_uri' => false,
+                'delete_label' => "Remplacer l'image actuel",
                 'required' => false,
-
             ])
             ->add('alterEgo', TextType::class, [
                 'label' => 'Identité'
@@ -40,7 +42,9 @@ class SuperHeroType extends AbstractType
                 'label' => 'Pouvoir',
                 'placeholder' => 'Selectionner un pouvoir',
             ])
-            ->add('available')
+            ->add('available', CheckboxType::class, [
+                'label' => "Disponible"
+            ])
             ->add('energyLevel', IntegerType::class, [
                 'label' => "Niveau d'énergie"
             ])
