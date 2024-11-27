@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\MissionRepository;
 use App\Repository\SuperHerosRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,9 +13,11 @@ class DashboardController extends AbstractController
 {
 
     private $superherosrepository;
-    public function __construct(SuperHerosRepository $superherosrepository)
+    private $missionrepository;
+    public function __construct(SuperHerosRepository $superherosrepository, MissionRepository $missionrepository)
     {
         $this->superherosrepository = $superherosrepository;
+        $this->missionrepository = $missionrepository;
     }
 
     #[Route('/', name: 'app_dashboard')]
@@ -22,9 +25,11 @@ class DashboardController extends AbstractController
     {
 
         $hero=$this->superherosrepository->findall();
+        $mission=$this->missionrepository->findall();
 
         return $this->render('dashboard/index.html.twig', [
-            'hero' => $hero,
+            'heros' => $hero,
+            'missions' => $mission,
         ]);
     }
 

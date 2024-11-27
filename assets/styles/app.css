@@ -10,6 +10,13 @@ a{
   color:white;
 }
 
+.h2{
+  font-family: "Edu SA Beginner", cursive;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size:40px;
+}
 .container-flex-col{
   display:flex;
   flex-direction: column;
@@ -31,6 +38,7 @@ a{
 }
 .container-xl{
   margin-top: 5%;
+  margin-bottom: 10%;
 }
 
 .container-xxl{
@@ -45,63 +53,10 @@ a{
   margin-right: 5%;
   margin-bottom: 5%;
 }
-/* CSS carte de visite héros */
 
-/* .flip-card{
-  perspective: 1000px;
-}
+ /* Card principale */
 
-.card-container {
-  position: relative;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-}
-
-.flip-card:hover .card-container {
-  transform: rotateY(180deg);
-}
-
-.front, .back{
-  width: 100%; 
-  max-width: 340px; 
-  height: 440px;
-  background: linear-gradient(to right, rgb(20, 30, 48), rgb(36, 59, 85));
-  border-radius: 15px;
-  box-shadow: rgb(0, 0, 0, 0.7) 5px 10px 50px, rgb(0, 0, 0, 0.7) -5px 0px 250px;
-  padding: 20px;
-  color: white;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.card div {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.front{
-
-}
-
-.back {
-  background: #ff6f61;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-
-  transform: rotateY(180deg);
-} */
-
-.card-container {
+ .card-container {
   position: relative;
   margin-bottom: 8%;
   width: 100%; 
@@ -165,8 +120,6 @@ a{
   align-items: center;
 }
 
-
- /* Card principale */
   /* .card {
   width: 100%; 
   max-width: 340px; 
@@ -184,7 +137,7 @@ a{
   overflow: hidden;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-} */ */
+} */ 
   
    .card:hover {
     box-shadow: rgb(0,0,0) 5px 10px 50px ,rgb(0,0,0) -5px 0px 250px;
