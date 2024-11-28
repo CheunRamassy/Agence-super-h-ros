@@ -2,9 +2,7 @@ body {
     background-color: #003366;
     color:white;
 }
-h1{
 
-}
 a{
   text-decoration: none;
   color:white;
@@ -17,25 +15,28 @@ a{
   font-style: normal;
   font-size:40px;
 }
+
 .container-flex-col{
   display:flex;
   flex-direction: column;
   align-items: last baseline;
 }
+
  .container-margin{
   margin-left: auto;
   margin-right: auto;
  }
+
 .container-flex-row{
     display:flex;
     flex-direction: row;
     align-items: center;
 }
 
-
 .container-bloc{
     margin:25px;    
 }
+
 .container-xl{
   margin-top: 5%;
   margin-bottom: 10%;
@@ -48,13 +49,131 @@ a{
   box-shadow: rgb(0,0,0,0.7) 5px 10px 50px ,rgb(0,0,0,0.7) -5px 0px 250px;
   background-color: #001a33;
 }
+
 .col{
   margin-top: 5%;
   margin-right: 5%;
   margin-bottom: 5%;
 }
 
- /* Card principale */
+
+
+  /* GESTION DU DASHBOARD */
+
+
+/* Gestion des équipes du dashboard */
+
+.equipe-carte {
+  background-color: #2a0809;
+  border: 2px solid #fff700; 
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.equipe-carte:hover {
+  transform: translateY(-5px); 
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+}
+
+.carte-titre {
+  background: linear-gradient(135deg, #5f5c04, #aba005); 
+  color: white;
+  border-radius: 10px 10px 0 0; 
+  padding: 15px;
+}
+
+.espace-titre{
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.carte-sousTitre{
+  color:white;
+}
+
+/* Liste des membres */
+.all-membre {
+  font-size: 1rem; 
+  border: none;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Styles responsives */
+@media (max-width: 768px) {
+  .equipe-carte {
+    padding: 1rem; 
+  }
+
+  .carte-titre {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .equipe-carte {
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+
+
+/* Gestion des missions du dashboard */
+
+
+.mission-card {
+  background: linear-gradient(135deg, #004d26, #0a3323); 
+  color: white; 
+  border-radius: 8px; 
+  padding: 1.5rem; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+/* Effet au survol */
+.mission-card:hover {
+  transform: translateY(-5px); 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
+.titre {
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  color: white; 
+}
+
+ /* Centrer la description au milieu de la carte */
+ .mission-description {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 1.5rem; /* Espacement sous la description */
+}
+
+.autres-informations{
+  font-size: 17px;
+}
+
+/* Réajustement du contenu dans les petites et moyennes tailles d'écran */
+@media (max-width: 768px) {
+  .list-group-item {
+    padding: 1rem;
+  }
+
+  .col-md-8 {
+    margin-bottom: 1rem;
+  }
+}
+
+    /* PARTIE HEROS */
+
+  /* Gestion des cartes héros */
+
 
  .card-container {
   position: relative;
@@ -118,27 +237,7 @@ a{
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-}
-
-  /* .card {
-  width: 100%; 
-  max-width: 340px; 
-  height: 440px;
-  background: linear-gradient(to right, rgb(20, 30, 48), rgb(36, 59, 85));
-  border-radius: 15px;
-  box-shadow: rgb(0, 0, 0, 0.7) 5px 10px 50px, rgb(0, 0, 0, 0.7) -5px 0px 250px;
-  padding: 20px;
-  color: white;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  overflow: hidden;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-} */ 
-  
+} 
    .card:hover {
     box-shadow: rgb(0,0,0) 5px 10px 50px ,rgb(0,0,0) -5px 0px 250px;
     transform: rotateY(180deg);
@@ -210,15 +309,66 @@ a{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   }
   
-  /* .moon {
-    font-size: 20px;
-    position: absolute;
-    right: 15px;
-    top: 15px;
-    transition: all 0.3s ease-in-out;
+
+  /* Partie gestion de tout les tableaux */
+
+.table {
+  background: linear-gradient(135deg, #003366, #0066cc);  /* Dégradé bleu */
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre douce */
+}
+
+/* Style pour les en-têtes du tableau (thead) */
+.table thead {
+  background-color: rgba(0, 51, 102, 0.85); /* Légèrement plus foncé */
+  font-weight: bold;
+}
+
+/* Style des lignes du tableau */
+.table tbody tr {
+  background-color: rgba(0, 51, 102, 0.5); /* Fond semi-transparent */
+  transition: background-color 0.3s ease;
+}
+
+/* Effet de survol des lignes */
+.table tbody tr:hover {
+  background-color: rgba(0, 51, 102, 0.7); /* Plus clair lors du survol */
+}
+
+/* Personnalisation des boutons */
+.table .btn {
+  margin: 0 5px;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+.table .btn-primary {
+  background-color: #003366;
+}
+
+.table .btn-primary:hover {
+  background-color: #00224d;
+}
+
+/* Bouton de suppression */
+.table .btn-danger {
+  background-color: #e63946;
+}
+
+.table .btn-danger:hover {
+  background-color: #d62e3e;
+}
+
+/* Rendre le tableau responsive */
+.table-responsive {
+  overflow-x: auto; /* Pour permettre le défilement horizontal sur les petits écrans */
+  -webkit-overflow-scrolling: touch; /* Pour un défilement fluide sur iOS */
+}
+
+/* Pour améliorer l'apparence sur les petits écrans */
+@media (max-width: 768px) {
+  .table th, .table td {
+    padding: 8px 5px; /* Espacement réduit pour les petites tailles */
   }
-  
-  .card:hover > .moon {
-    font-size: 23px;
-  } 
-   */
+}

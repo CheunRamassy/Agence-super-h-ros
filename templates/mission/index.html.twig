@@ -13,40 +13,44 @@
   </div>
 </div>
 
-<table class="table">
-  <thead>
-    <tr>
+<div class="table-responsive">
+  <table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+      <tr>
         <th scope="col">Titre</th>
         <th scope="col">Description</th>
-        <th scope="col">Location</th>
+        <th scope="col">Localisation</th>
         <th scope="col">Difficulté</th>
         <th scope="col">Etat</th>
         <th scope="col">Équipe associé</th>
         <th scope="col">Date de début</th>
         <th scope="col">Date de fin</th>
         <th scope="col">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-    {% for mission in missions %}
-        {# <th scope="row">1</th> #}
-        <td>{{mission.title}}</td>
-        <td>{{mission.description}}</td>
-        <td>{{mission.location}}</td>
-        <td>{{mission.dangerLevel}}</td>
-        <td>{{mission.status.name}}</td>
-        <td>{{mission.assignedTeam.name}}</td>
-        <td>{{mission.startAt |date}}</td>
-        <td>{{mission.endAt |date}}</td>
+      </tr>
+    </thead>
+    <tbody>
+      {% for mission in missions %}
+        <tr>
+          <td>{{ mission.title }}</td>
+          <td>{{ mission.description }}</td>
+          <td>{{ mission.location }}</td>
+          <td>{{ mission.dangerLevel }}</td>
+          <td>{{ mission.status.name }}</td>
+          {% if  mission.assignedTeam == null %}
+            <td><p>Aucune équipe associé</p></td>
+          {% else %}
+          <td>{{ mission.assignedTeam.name }}</td>
+          {% endif %}
+          <td>{{ mission.startAt | date }}</td>
+          <td>{{ mission.endAt | date }}</td>
+          <td>
+            <a class="btn btn-primary" href="{{ path('edit_mission', {id: mission.id}) }}" type="button">Modifier</a>
+            <a class="btn btn-danger" href="{{ path('remove_mission', {id: mission.id}) }}" type="button">Supprimer</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
 
-        <td><a class="btn btn-primary" href= "{{ path('edit_mission', {id: mission.id}) }}"type="button" >Modifier</a>
-        <a class="btn btn-primary" href= "{{ path('remove_mission', {id: mission.id}) }}"type="button" >Supprimer</a></td>
-    </tr>
-{% endfor %}
-
-
-  </div>
-
-    </tr>
 {% endblock %}

@@ -37,10 +37,6 @@
                 <div><strong>Energie:</strong> {{ hero.energyLevel }}</div>
                 <div><strong>Créé le:</strong> {{ hero.createdAt | date }}</div>
               </div>
-              <div class="card-footer">
-                <a href="{{ path('edit_hero', {id: hero.id}) }}" class="btn btn-outline-light">Modifier</a>
-                <a href="{{ path('remove_hero', {id: hero.id}) }}" class="btn btn-outline-danger">Supprimer</a>
-              </div>
             </div>
           </div>
         </div>
@@ -48,17 +44,110 @@
       {% endif %}
     {% endfor %}
 
-    <div class="container-xl">
-
+<div class="container-xl">
   <a class="btn btn-primary" href= "{{ path('show_hero') }}"type="button" >Voir plus</a>
+</div>
 
+<div class="container-xl">
+  <h3 class="h2">Toute nos équipes:</h3>
+</div>
+
+<!-- Affiche les équipes et leurs status -->
+<div class="container-xl">
+  <div class="row">
+    {% for team in teams %}
+      <div class="col-12 col-md-6 col-lg-4 mb-4">
+        <div class="carte equipe-carte">
+          <div class="carte-header text-center">
+
+            <!-- Nom de l'équipe -->
+            <h4 class="carte-titre">{{ team.name }}</h4>
+
+            <!-- Leader de l'équipe -->
+            <div class="espace-titre">
+              <h6 class="carte-sousTitre">Leader : {{ team.leader.name }}</h6>
+            </div>
+          </div>
+          <div class="carte-body">
+
+
+            {% for mission in missions %}
+
+            <!-- Status de la mission -->
+
+              {% if mission.assignedTeam != null %}
+                {% if team.name == mission.assignedTeam.name %}
+                  {% if mission.status.name == "EN_COURS" %}
+                    <p><strong>Etat:</strong> En mission</p>
+                  {% else %}
+                    <p><strong>Etat:</strong> En Attente d'une mission</p>
+                  {% endif %}
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+            <!-- Les membres de l'équipe -->
+            <h5 class="carte-title">Membres :</h5><br/>
+            <ul class="list-group">
+              {% for member in team.members %}
+                <li class="list-group-item all-membre">{{ member.name }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="container-xl">
+  <a class="btn btn-primary" href= "{{ path('show_team') }}"type="button" >Voir plus</a>
 </div>
 
 <div class="container-xl">
   <h3 class="h2">Mission en cours:</h3>
 </div>
 
+<div class="list-group">
+  {% for mission in missions %}
 
+   <!-- Status de la mission -->
+    {% if mission.status.name == "EN_COURS" %}
+      <div class="list-group-item list-group-item-action mb-3">
+        <div class="mission-card">
+        <div class="row">
+          <div class="col-12">
+
+            <!-- Titre de la mission -->
+            <h5 class="mb-5 titre">{{ mission.title }}</h5>
+
+            <!-- Description centrée -->
+            {# <p><strong>Description:</strong></p> #}
+            <div class="mission-description">
+               <p>{{ mission.description }}</p>
+            </div>
+
+            <!-- Autres informations -->
+            <div class="col autres-informations">
+            {% if  mission.assignedTeam == null %}
+            <p><strong>Équipe associée:</strong> Aucune équipe associé</p>
+            {% else %}
+              <p><strong>Équipe associée:</strong> {{ mission.assignedTeam.name }}</p>
+            {% endif %}
+              <p><strong>État:</strong> {{ mission.status.name }}</p>
+              <p><strong>Location:</strong> {{ mission.location }}</p>
+              <p><strong>Difficulté:</strong> {{ mission.dangerLevel }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+<div class="container-xl">
+  <a class="btn btn-primary" href= "{{ path('show_mission') }}"type="button" >Voir plus</a>
+</div>
 
 {% endblock %}
 

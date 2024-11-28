@@ -25,6 +25,7 @@ class Team
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
 
+ 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     private ?Mission $currentMission = null;
 
@@ -42,7 +43,7 @@ class Team
      * @var Collection<int, SuperHeros>
      */
     #[ORM\ManyToMany(targetEntity: SuperHeros::class, inversedBy: 'teamsMembers')]
-    #[Assert\Range(min: 2, max: 5)]
+    // #[Assert\Range(min: 2, max: 5)]
     private Collection $members;
 
     public function __construct()

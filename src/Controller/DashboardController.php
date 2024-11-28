@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Repository\MissionRepository;
 use App\Repository\SuperHerosRepository;
+use App\Repository\TeamRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -14,10 +15,12 @@ class DashboardController extends AbstractController
 
     private $superherosrepository;
     private $missionrepository;
-    public function __construct(SuperHerosRepository $superherosrepository, MissionRepository $missionrepository)
+    private $teamrepository;
+    public function __construct(SuperHerosRepository $superherosrepository, MissionRepository $missionrepository, TeamRepository $teamrepository)
     {
         $this->superherosrepository = $superherosrepository;
         $this->missionrepository = $missionrepository;
+        $this->teamrepository = $teamrepository;
     }
 
     #[Route('/', name: 'app_dashboard')]
@@ -26,10 +29,12 @@ class DashboardController extends AbstractController
 
         $hero=$this->superherosrepository->findall();
         $mission=$this->missionrepository->findall();
+        $team=$this->teamrepository->findall();
 
         return $this->render('dashboard/index.html.twig', [
             'heros' => $hero,
             'missions' => $mission,
+            'teams' => $team,
         ]);
     }
 

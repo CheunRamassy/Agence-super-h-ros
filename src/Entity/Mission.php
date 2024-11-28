@@ -37,6 +37,7 @@ class Mission
     #[Assert\Range(min: 0, max: 5)]
     private ?int $dangerLevel = null;
 
+    #[ORM\JoinColumn(nullable: true)]
     #[ORM\ManyToOne(inversedBy: 'missions')]
     private ?Team $assignedTeam = null;
 

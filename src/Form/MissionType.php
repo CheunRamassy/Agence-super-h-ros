@@ -43,7 +43,9 @@ class MissionType extends AbstractType
                 'class' => Team::class,
                 'choice_label' => 'name',
                 'placeholder' => 'Selectionner une équipe',
-                'label' => 'Associer une équipe'
+                'label' => 'Associer une équipe',
+                'empty_data' => null,
+                'required' => false,
             ])
             ->add('startAt', null, [
                 'widget' => 'single_text',
