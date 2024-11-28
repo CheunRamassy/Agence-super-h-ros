@@ -56,7 +56,144 @@ a{
   margin-bottom: 5%;
 }
 
+/* NavBar personnalisé dans dashboard et statistique */
 
+.menu{
+  display:flex;
+  top:0;
+  z-index:7;
+}
+
+.navbar-Da-sta{
+  width:70%;
+  margin-top: 40px;
+  margin-left:7%;
+  color:white;
+  position: sticky;
+  top: 0px;
+}
+
+ul {
+  padding-right: 30%;
+}
+
+.navbar-Da-sta ul{
+  list-style-type:none;
+
+}
+
+.navbar-Da-sta li{
+  float: left;
+  width:19%;
+  text-align: center;
+}
+
+.navbar-Da-sta a{
+  display: block;
+  text-decoration: none;
+  color: white;
+  border-bottom: 2px solid #fff700;
+  padding: 10px 0px;
+}
+
+.navbar-Da-sta ul::after {
+  content:"";
+  display:block;
+  clear:both;
+}
+
+.navbar-Da-sta a:hover{
+  display: block;
+  text-decoration: none;
+  color: #fff700;
+  border-bottom: 2px solid #fff700;
+  padding: 10px 0px;
+}
+
+.navbar-Da-sta nav ul::after {
+  content:"";
+  display:block;
+  clear:both;
+}
+
+/* CSS pour tout les boutons comme voir plus et ajouter */
+
+/* Style général du bouton */
+.hero-btn {
+  background-color: #ffcc00; /* Jaune éclatant, couleur énergique */
+  color: #1e1e1e; /* Texte sombre pour contraster */
+  font-weight: bold;
+  padding: 12px 30px; /* Padding initial */
+  font-size: 18px; /* Taille de la police initiale */
+  border: 3px solid #ffcc00; /* Bordure dorée épaisse */
+  border-radius: 50px; /* Bordures arrondies */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre subtile */
+  text-transform: uppercase; /* Mettre le texte en majuscules */
+  letter-spacing: 1.5px; /* Espacement entre les lettres */
+  transition: all 0.3s ease-in-out; /* Transition pour les effets de hover */
+  position: relative; /* Pour la gestion du survol avec effet */
+  display: inline-block;
+}
+
+/* Effet de survol (hover) */
+.hero-btn:hover {
+  background-color: #ff5f00; /* Couleur plus foncée sur le survol */
+  color: #fff; /* Texte blanc lors du survol */
+  transform: scale(1.1); /* Légère agrandissement lors du survol */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Ombre plus marquée */
+  cursor: pointer; /* Le curseur devient une main pour signaler l'interaction */
+}
+
+/* Ajout d'un effet "pulsant" au survol */
+.hero-btn:before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.6), rgba(255, 0, 0, 0.6));
+  border-radius: 50px;
+  opacity: 0;
+  animation: pulse 1.5s infinite; /* Animation de pulsation */
+  z-index: -1;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+}
+
+/* Au survol, l'animation devient plus rapide */
+.hero-btn:hover:before {
+  animation-duration: 0.8s;
+}
+
+/* Responsive: ajustement pour écrans de petite taille (mobile) */
+@media (max-width: 768px) {
+  .hero-btn {
+    font-size: 16px; /* Réduit la taille de la police sur mobile */
+    padding: 10px 20px; /* Réduit l'espace autour du texte */
+  }
+}
+
+/* Responsive: pour les écrans très petits (smartphones très petits) */
+@media (max-width: 480px) {
+  .hero-btn {
+    font-size: 14px; /* Réduit encore la taille de la police */
+    padding: 8px 15px; /* Réduit l'espace autour du texte */
+  }
+}
 
   /* GESTION DU DASHBOARD */
 

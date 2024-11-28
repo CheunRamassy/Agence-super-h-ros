@@ -4,6 +4,22 @@
 
 {% block body %}
 
+<div class="menu">
+    <div class="initial-name">
+        <a href="portefolio.html"></a>
+    </div>
+    <nav class="navbar-Da-sta">
+        <ul>
+            <li>
+                <a class="lien-dash-sta" href="{{ path('app_dashboard') }}">Dashboard</a>
+            </li> 
+            <li>
+                <a class="lien-dash-sta" href="{{ path('app_statistique') }}">Statistique</a>
+            </li> 
+        </ul>
+    </nav>
+</div> 
+
 <div class="container-xl">
   <h1 class="display-3">Super Héros League</h1>
 </div>
@@ -48,8 +64,8 @@
       {% endif %}
     {% endfor %}
 
-<div class="container-xl">
-  <a class="btn btn-primary" href= "{{ path('show_hero') }}"type="button" >Voir plus</a>
+<div class="container-xl text-center my-4">
+  <a class="btn btn-primary hero-btn" href= "{{ path('show_hero') }}"type="button" >Voir plus</a>
 </div>
 
 <div class="container-xl">
@@ -73,8 +89,6 @@
             </div>
           </div>
           <div class="carte-body">
-
-
             {% for mission in missions %}
 
             <!-- Status de la mission -->
@@ -103,8 +117,8 @@
   </div>
 </div>
 
-<div class="container-xl">
-  <a class="btn btn-primary" href= "{{ path('show_team') }}"type="button" >Voir plus</a>
+<div class="container-xl text-center my-4">
+  <a class="btn btn-primary hero-btn" href= "{{ path('show_hero') }}"type="button" >Voir plus</a>
 </div>
 
 <div class="container-xl">
@@ -115,8 +129,7 @@
   <div class="row">
     {% for mission in missions %}
       {% if mission.status.name == "EN_COURS" %}
-        <!-- Colonne pour chaque carte -->
-        <div class="col-md-6 mb-3"> <!-- Deux cartes par ligne sur grand écran -->
+        <div class="col-md-6 mb-3"> 
           <div class="list-group-item list-group-item-action">
             <div class="mission-card">
               <!-- Badge "EN_COURS" en haut à gauche -->
@@ -124,10 +137,10 @@
                 {{ mission.status.name }}
               </span>
 
-              <!-- Titre de la mission, centré -->
+              <!-- Titre de la mission -->
               <h5 class="mb-5 titre">{{ mission.title }}</h5>
 
-              <!-- Description centrée -->
+              <!-- Description -->
               <div class="mission-description">
                 <p>{{ mission.description }}</p>
               </div>
@@ -150,45 +163,8 @@
   </div>
 </div>
 
-
-
-{# <div class="list-group">
-  <div class="row">
-    {% for mission in missions %}
-      {% if mission.status.name == "EN_COURS" %}
-        <!-- Colonne pour chaque carte -->
-        <div class="col-md-6 mb-3"> <!-- col-md-6 pour deux cartes par ligne sur grand écran -->
-          <div class="list-group-item list-group-item-action">
-            <div class="mission-card">
-              <!-- Titre de la mission -->
-              <h5 class="mb-5 pl-2 titre">{{ mission.title }}</h5>
-
-              <!-- Description centrée -->
-              <div class="mission-description">
-                <p>{{ mission.description }}</p>
-              </div>
-
-              <!-- Autres informations -->
-              <div class="autres-informations">
-                {% if  mission.assignedTeam == null %}
-                  <p><strong>Équipe associée:</strong> Aucune équipe associée</p>
-                {% else %}
-                  <p><strong>Équipe associée:</strong> {{ mission.assignedTeam.name }}</p>
-                {% endif %}
-                <p><strong>État:</strong> {{ mission.status.name }}</p>
-                <p><strong>Location:</strong> {{ mission.location }}</p>
-                <p><strong>Difficulté:</strong> {{ mission.dangerLevel }}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      {% endif %}
-    {% endfor %}
-  </div>
-</div> #}
-
-<div class="container-xl">
-  <a class="btn btn-primary" href= "{{ path('show_mission') }}"type="button" >Voir plus</a>
+<div class="container-xl text-center my-4">
+  <a class="btn btn-primary hero-btn" href= "{{ path('show_hero') }}"type="button" >Voir plus</a>
 </div>
 
 {% endblock %}
