@@ -31,7 +31,11 @@
             <img src="/images/heros/{{ hero.imageName }}" alt="Image de {{ hero.name }}" class="hero-image">
               <div class="alter-ego">{{ hero.alterEgo }}</div>
               <div class="card-content">
-                <div><strong>Disponibilité:</strong> {{ hero.available }}</div>
+              {% if hero.available == 1 %}
+                <div><strong>Disponibilité:</strong> Oui</div>
+              {% else %}
+                <div><strong>Disponibilité:</strong> Non</div>
+              {% endif %}
                 <div><strong>Biographie:</strong> {{ hero.biography }}</div>
                 <div><strong>Power:</strong> {% if hero.powerHero == null %}Non assigné{% else %}{{ hero.powerHero.name }}{% endif %}</div>
                 <div><strong>Energie:</strong> {{ hero.energyLevel }}</div>
@@ -108,42 +112,80 @@
 </div>
 
 <div class="list-group">
-  {% for mission in missions %}
+  <div class="row">
+    {% for mission in missions %}
+      {% if mission.status.name == "EN_COURS" %}
+        <!-- Colonne pour chaque carte -->
+        <div class="col-md-6 mb-3"> <!-- Deux cartes par ligne sur grand écran -->
+          <div class="list-group-item list-group-item-action">
+            <div class="mission-card">
+              <!-- Badge "EN_COURS" en haut à gauche -->
+              <span class="badge badge-warning position-absolute top-0 left-0 ml-3 mt-3">
+                {{ mission.status.name }}
+              </span>
 
-   <!-- Status de la mission -->
-    {% if mission.status.name == "EN_COURS" %}
-      <div class="list-group-item list-group-item-action mb-3">
-        <div class="mission-card">
-        <div class="row">
-          <div class="col-12">
+              <!-- Titre de la mission, centré -->
+              <h5 class="mb-5 titre">{{ mission.title }}</h5>
 
-            <!-- Titre de la mission -->
-            <h5 class="mb-5 titre">{{ mission.title }}</h5>
+              <!-- Description centrée -->
+              <div class="mission-description">
+                <p>{{ mission.description }}</p>
+              </div>
 
-            <!-- Description centrée -->
-            {# <p><strong>Description:</strong></p> #}
-            <div class="mission-description">
-               <p>{{ mission.description }}</p>
-            </div>
-
-            <!-- Autres informations -->
-            <div class="col autres-informations">
-            {% if  mission.assignedTeam == null %}
-            <p><strong>Équipe associée:</strong> Aucune équipe associé</p>
-            {% else %}
-              <p><strong>Équipe associée:</strong> {{ mission.assignedTeam.name }}</p>
-            {% endif %}
-              <p><strong>État:</strong> {{ mission.status.name }}</p>
-              <p><strong>Location:</strong> {{ mission.location }}</p>
-              <p><strong>Difficulté:</strong> {{ mission.dangerLevel }}</p>
+              <!-- Autres informations -->
+              <div class="autres-informations">
+                {% if mission.assignedTeam == null %}
+                  <p><strong>Équipe associée:</strong> Aucune équipe associée</p>
+                {% else %}
+                  <p><strong>Équipe associée:</strong> {{ mission.assignedTeam.name }}</p>
+                {% endif %}
+                <p><strong>Localisation:</strong> {{ mission.location }}</p>
+                <p><strong>Difficulté:</strong> {{ mission.dangerLevel }}</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      </div>
-    {% endif %}
-  {% endfor %}
+      {% endif %}
+    {% endfor %}
+  </div>
 </div>
+
+
+
+{# <div class="list-group">
+  <div class="row">
+    {% for mission in missions %}
+      {% if mission.status.name == "EN_COURS" %}
+        <!-- Colonne pour chaque carte -->
+        <div class="col-md-6 mb-3"> <!-- col-md-6 pour deux cartes par ligne sur grand écran -->
+          <div class="list-group-item list-group-item-action">
+            <div class="mission-card">
+              <!-- Titre de la mission -->
+              <h5 class="mb-5 pl-2 titre">{{ mission.title }}</h5>
+
+              <!-- Description centrée -->
+              <div class="mission-description">
+                <p>{{ mission.description }}</p>
+              </div>
+
+              <!-- Autres informations -->
+              <div class="autres-informations">
+                {% if  mission.assignedTeam == null %}
+                  <p><strong>Équipe associée:</strong> Aucune équipe associée</p>
+                {% else %}
+                  <p><strong>Équipe associée:</strong> {{ mission.assignedTeam.name }}</p>
+                {% endif %}
+                <p><strong>État:</strong> {{ mission.status.name }}</p>
+                <p><strong>Location:</strong> {{ mission.location }}</p>
+                <p><strong>Difficulté:</strong> {{ mission.dangerLevel }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div> #}
 
 <div class="container-xl">
   <a class="btn btn-primary" href= "{{ path('show_mission') }}"type="button" >Voir plus</a>

@@ -60,6 +60,7 @@ a{
 
   /* GESTION DU DASHBOARD */
 
+/* La gestion des héros prends le même css que la gestion des cartes héros */
 
 /* Gestion des équipes du dashboard */
 
@@ -123,52 +124,96 @@ a{
 }
 
 
-
 /* Gestion des missions du dashboard */
-
-
+/* Style général des cartes */
+/* Style général des cartes */
 .mission-card {
-  background: linear-gradient(135deg, #004d26, #0a3323); 
-  color: white; 
-  border-radius: 8px; 
-  padding: 1.5rem; 
-  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+  background: linear-gradient(135deg, #2c3e50, #34495e); /* Dégradé sombre du bleu nuit au gris foncé */
+  color: white;
+  border-radius: 12px; /* Coins arrondis pour un effet moderne */
+  padding: 2rem;
+  position: relative; /* Pour positionner le badge "EN_COURS" en absolu */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Ombre plus marquée pour un effet de profondeur */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-/* Effet au survol */
 .mission-card:hover {
-  transform: translateY(-5px); 
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+  transform: translateY(-10px); /* Plus marqué au survol */
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3); /* Ombre plus profonde au survol */
 }
 
+/* Titre de la mission */
 .titre {
-  text-align: center;
-  font-size: 40px;
+  text-align: center; /* Centrer le titre */
+  font-size: 32px;
   font-weight: bold;
-  color: white; 
+  color: #f1f1f1;
+  margin-top: 40px; /* Décalage pour éviter qu'il soit trop proche du badge */
+  margin-bottom: 20px;
+  border-bottom: 3px solid #ffcc00; /* Ligne dorée sous le titre */
+  padding-bottom: 10px;
 }
 
- /* Centrer la description au milieu de la carte */
- .mission-description {
+/* Description de la mission */
+.mission-description {
+  font-size: 18px;
+  font-style: italic;
   text-align: center;
-  font-size: 20px;
-  margin-bottom: 1.5rem; /* Espacement sous la description */
+  margin-bottom: 25px;
 }
 
-.autres-informations{
-  font-size: 17px;
+/* Informations supplémentaires */
+.autres-informations {
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: left;
 }
 
-/* Réajustement du contenu dans les petites et moyennes tailles d'écran */
+.autres-informations p {
+  margin-bottom: 15px;
+}
+
+.autres-informations strong {
+  color: #ffcc00; /* Accent doré pour les titres des informations */
+}
+
+/* Badge "EN_COURS" */
+.badge-warning {
+  background-color: #ffcc00 !important; /* Couleur dorée pour l'état "EN_COURS" */
+  color: #333333 !important; /* Texte sombre pour contraster avec le fond doré */
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 16px;
+  display: inline-block;
+}
+
+/* Positionnement du badge */
+.position-absolute {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+/* Responsive mobile */
 @media (max-width: 768px) {
-  .list-group-item {
-    padding: 1rem;
+  .mission-card {
+    padding: 1.5rem;
   }
 
-  .col-md-8 {
-    margin-bottom: 1rem;
+  .titre {
+    font-size: 24px;
+  }
+
+  .mission-description {
+    font-size: 16px;
+  }
+
+  .autres-informations {
+    font-size: 14px;
   }
 }
+
 
     /* PARTIE HEROS */
 

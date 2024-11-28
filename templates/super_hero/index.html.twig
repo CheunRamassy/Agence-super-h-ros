@@ -32,7 +32,11 @@
             <img src="/images/heros/{{ hero.imageName }}" alt="Image de {{ hero.name }}" class="hero-image">
               <div class="alter-ego">{{ hero.alterEgo }}</div>
               <div class="card-content">
-                <div><strong>Disponibilité:</strong> {{ hero.available }}</div>
+              {% if hero.available == 1 %}
+                <div><strong>Disponibilité:</strong> Oui</div>
+              {% else %}
+                <div><strong>Disponibilité:</strong> Non</div>
+              {% endif %}
                 <div><strong>Biographie:</strong> {{ hero.biography }}</div>
                 <div><strong>Power:</strong> {% if hero.powerHero == null %}Non assigné{% else %}{{ hero.powerHero.name }}{% endif %}</div>
                 <div><strong>Energie:</strong> {{ hero.energyLevel }}</div>
