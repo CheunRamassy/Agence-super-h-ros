@@ -25,8 +25,8 @@ class Team
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
 
-    #[ORM\Column]
-    private ?array $reussite = null;
+    // #[ORM\Column]
+    // private ?array $reussite = null;
  
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     private ?Mission $currentMission = null;
@@ -145,6 +145,9 @@ class Team
 
     public function setLeader(?SuperHeros $leader): static
     {
+        if($leader==null){
+            $this->leader->removeTeam($this);
+        }
         $this->leader = $leader;
 
         return $this;
@@ -170,25 +173,26 @@ class Team
     public function removeMember(SuperHeros $member): static
     {
         $this->members->removeElement($member);
+        $member->removeTeamsMember($this);
 
         return $this;
     }
 
-    public function getReussite(): ?Array
-    {
-        return $this->reussite;
-    }
+    // public function getReussite(): ?Array
+    // {
+    //     return $this->reussite;
+    // }
 
-    public function setReussite(?Array $reussite): static
-    {
-        $this->reussite = $reussite;
+    // public function setReussite(?Array $reussite): static
+    // {
+    //     $this->reussite = $reussite;
 
-        return $this;
-    }
+    //     return $this;
+    // }
     
-    public function __toString()
-    {
-        return $this->getReussite();
-    }
+    // public function __toString()
+    // {
+    //     return $this->getReussite();
+    // }
 
 }

@@ -30,17 +30,25 @@
     <tr>
       {% for team in teams %}
           <td>{{team.name}}</td>
+          {% if team.leader == null %}
+          <td>Pas de héros associé</td>
+          {% else %}
           <td>{{team.leader.name}}</td>
+          {% endif %}
           <td>
           {% for member in team.members %}
             {{member.name}}
           {% endfor %}
           </td>
+          {% if team.currentMission == null %}
+          <td>Aucune mission en cours</td>
+          {% else %}
           <td>{{team.currentMission.title}}</td>
+          {% endif %}
           <td>{{team.createdAt |date}}</td>
           <td>
             <a class="btn btn-primary" href= "{{ path('edit_team', {id: team.id}) }}"type="button" >Modifier</a>
-            <a class="btn btn-danger" href= "{{ path('create_team', {id: team.id}) }}"type="button" >Supprimer</a>
+            <a class="btn btn-danger" href= "{{ path('remove_team', {id: team.id}) }}"type="button" >Supprimer</a>
           </td>
         </tr>
       {% endfor %}

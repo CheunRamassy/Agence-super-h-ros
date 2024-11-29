@@ -36,6 +36,7 @@ class TeamType extends AbstractType
                 'choice_label' => 'title',
                 'label' => 'Mission en cours',
                 'placeholder' => 'Selectionner une mission',
+                'required' => false,
             ])
             ->add('createdAt', null, [
                 'widget' => 'single_text',

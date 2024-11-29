@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\SuperHeros;
 use App\Form\SuperHeroType;
 use App\Repository\SuperHerosRepository;
+use App\Repository\TeamRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -71,6 +72,14 @@ class SuperHeroController extends AbstractController
     public function remove(int $id, EntityManagerInterface $em): Response
     {
         $hero=$this->superherosrepository->find($id);
+        $teams = $hero->getTeams();
+        $teamsMembers = $hero->getTeamsMembers();
+        foreach ($teams as $team){
+            $team->setLeader(null);
+        }
+        foreach ($teamsMembers as $teamsMember){
+            $teamsMember->removeMember($hero);
+        }
         $em->remove($hero);
         $em->flush();
         return $this->redirectToRoute('show_hero');

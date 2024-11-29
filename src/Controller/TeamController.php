@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Team;
 use App\Form\TeamType;
+use App\Repository\SuperHerosRepository;
 use App\Repository\TeamRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,9 +16,11 @@ use Symfony\Component\Routing\Attribute\Route;
 class TeamController extends AbstractController
 {
     private $teamrepository;
-    public function __construct(TeamRepository $teamrepository)
+    private $superherosrepository;
+    public function __construct(TeamRepository $teamrepository, SuperHerosRepository $superherosrepository)
     {
         $this->teamrepository = $teamrepository;
+        $this->superherosrepository = $superherosrepository;
     }
     #[Route('/show', name: 'show_team')]
     public function index(): Response
@@ -72,8 +75,25 @@ class TeamController extends AbstractController
     #[Route('/remove/{id}', name: 'remove_team')]
     public function remove(int $id, EntityManagerInterface $em): Response
     {
-        $hero=$this->teamrepository->find($id);
-        $em->remove($hero);
+        $team=$this->teamrepository->find($id);
+        $heros=$this->superherosrepository->findAll();
+        $teamsMembers = $team->getMembers();
+        $missions = $team->getMissions(); 
+        $team->setLeader(null);
+        foreach( $heros as $hero){
+            foreach($teamsMembers as $teamsMember){
+                if($hero == $teamsMember){
+                   $team->removeMember($hero);
+                } 
+            }
+        }
+        foreach( $missions as $mission){
+            if($mission == $team->getCurrentMission()){
+                $team->removeMission($mission);
+            }
+            
+        }
+        $em->remove($team);
         $em->flush();
         return $this->redirectToRoute('show_team');
 

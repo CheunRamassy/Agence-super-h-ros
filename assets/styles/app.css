@@ -1,3 +1,5 @@
+/* Gestion du CSS de l'ensemble du projet */
+
 body {
     background-color: #003366;
     color:white;
@@ -116,7 +118,7 @@ ul {
   clear:both;
 }
 
-/* CSS pour tout les boutons comme voir plus*/
+/* CSS des boutons voir plus*/
 
 .hero-btn {
   background-color: #ffcc00; 
@@ -349,11 +351,10 @@ ul {
     /* Partie statistiques */
 
   /* Gestion des statistiques héros */
+
   .background-stat{
     /* background-color: white; */
   }
-
-    /* Gestion des statistiques équipes */
 
     /* PARTIE HEROS */
 
@@ -498,27 +499,27 @@ ul {
   /* Partie gestion de tout les tableaux */
 
 .table {
-  background: linear-gradient(135deg, #003366, #0066cc);  /* Dégradé bleu */
+  background: linear-gradient(135deg, #003366, #0066cc);  
   color: white;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre douce */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
-/* Style pour les en-têtes du tableau (thead) */
+
 .table thead {
-  background-color: rgba(0, 51, 102, 0.85); /* Légèrement plus foncé */
+  background-color: rgba(0, 51, 102, 0.85); 
   font-weight: bold;
 }
 
 /* Style des lignes du tableau */
 .table tbody tr {
-  background-color: rgba(0, 51, 102, 0.5); /* Fond semi-transparent */
+  background-color: rgba(0, 51, 102, 0.5); 
   transition: background-color 0.3s ease;
 }
 
 /* Effet de survol des lignes */
 .table tbody tr:hover {
-  background-color: rgba(0, 51, 102, 0.7); /* Plus clair lors du survol */
+  background-color: rgba(0, 51, 102, 0.7); 
 }
 
 /* Personnalisation des boutons */
@@ -547,13 +548,13 @@ ul {
 
 /* Rendre le tableau responsive */
 .table-responsive {
-  overflow-x: auto; /* Pour permettre le défilement horizontal sur les petits écrans */
-  -webkit-overflow-scrolling: touch; /* Pour un défilement fluide sur iOS */
+  overflow-x: auto; 
+  -webkit-overflow-scrolling: touch; 
 }
 
-/* Pour améliorer l'apparence sur les petits écrans */
+
 @media (max-width: 768px) {
   .table th, .table td {
-    padding: 8px 5px; /* Espacement réduit pour les petites tailles */
+    padding: 8px 5px; 
   }
 }
