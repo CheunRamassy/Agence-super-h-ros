@@ -43,7 +43,8 @@ class SuperHeroType extends AbstractType
                 'placeholder' => 'Selectionner un pouvoir',
             ])
             ->add('available', CheckboxType::class, [
-                'label' => "Disponible"
+                'label' => "Disponible",
+                'required' => false,
             ])
             ->add('energyLevel', IntegerType::class, [
                 'label' => "Niveau d'énergie"

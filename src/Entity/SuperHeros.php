@@ -32,6 +32,8 @@ class SuperHeros
     #[Assert\Range(min: 0, max: 100)]
     private ?int $energyLevel = null;
 
+    #[ORM\Column]
+    private ?array $reussite = null;
 
     #[ORM\Column(length: 255)]
     private ?string $biography = null;
@@ -67,11 +69,6 @@ class SuperHeros
         $this->teams = new ArrayCollection();
         $this->teamsMembers = new ArrayCollection();
     }
-
-    // public function __toString()
-    // {
-    //     return $this->getName() . ' ' . $this->getAlterEgo();
-    // }
 
     public function getId(): ?int
     {
@@ -174,6 +171,18 @@ class SuperHeros
         return $this;
     }
 
+    public function getReussite(): ?Array
+    {
+        return $this->reussite;
+    }
+
+    public function setReussite(?Array $reussite): static
+    {
+        $this->reussite = $reussite;
+
+        return $this;
+    }
+
     /**
      * @return Collection<int, Team>
      */
@@ -251,6 +260,11 @@ class SuperHeros
         $this->powerHero = $powerHero;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getReussite();
     }
 
 

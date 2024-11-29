@@ -25,6 +25,8 @@ class Team
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
 
+    #[ORM\Column]
+    private ?array $reussite = null;
  
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     private ?Mission $currentMission = null;
@@ -172,5 +174,21 @@ class Team
         return $this;
     }
 
+    public function getReussite(): ?Array
+    {
+        return $this->reussite;
+    }
+
+    public function setReussite(?Array $reussite): static
+    {
+        $this->reussite = $reussite;
+
+        return $this;
+    }
+    
+    public function __toString()
+    {
+        return $this->getReussite();
+    }
 
 }

@@ -116,35 +116,32 @@ ul {
   clear:both;
 }
 
-/* CSS pour tout les boutons comme voir plus et ajouter */
+/* CSS pour tout les boutons comme voir plus*/
 
-/* Style général du bouton */
 .hero-btn {
-  background-color: #ffcc00; /* Jaune éclatant, couleur énergique */
-  color: #1e1e1e; /* Texte sombre pour contraster */
+  background-color: #ffcc00; 
+  color: #1e1e1e; 
   font-weight: bold;
-  padding: 12px 30px; /* Padding initial */
-  font-size: 18px; /* Taille de la police initiale */
-  border: 3px solid #ffcc00; /* Bordure dorée épaisse */
-  border-radius: 50px; /* Bordures arrondies */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre subtile */
-  text-transform: uppercase; /* Mettre le texte en majuscules */
-  letter-spacing: 1.5px; /* Espacement entre les lettres */
-  transition: all 0.3s ease-in-out; /* Transition pour les effets de hover */
-  position: relative; /* Pour la gestion du survol avec effet */
+  padding: 12px 30px; 
+  font-size: 18px; 
+  border: 3px solid #ffcc00; 
+  border-radius: 50px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  text-transform: uppercase; 
+  letter-spacing: 1.5px; 
+  transition: all 0.3s ease-in-out; 
+  position: relative; 
   display: inline-block;
 }
 
-/* Effet de survol (hover) */
 .hero-btn:hover {
-  background-color: #ff5f00; /* Couleur plus foncée sur le survol */
-  color: #fff; /* Texte blanc lors du survol */
-  transform: scale(1.1); /* Légère agrandissement lors du survol */
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Ombre plus marquée */
-  cursor: pointer; /* Le curseur devient une main pour signaler l'interaction */
+  background-color: #ff5f00; 
+  color: #fff; 
+  transform: scale(1.1); 
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); 
+  cursor: pointer; 
 }
 
-/* Ajout d'un effet "pulsant" au survol */
 .hero-btn:before {
   content: '';
   position: absolute;
@@ -155,7 +152,7 @@ ul {
   background: linear-gradient(45deg, rgba(255, 255, 255, 0.6), rgba(255, 0, 0, 0.6));
   border-radius: 50px;
   opacity: 0;
-  animation: pulse 1.5s infinite; /* Animation de pulsation */
+  animation: pulse 1.5s infinite; 
   z-index: -1;
 }
 
@@ -174,24 +171,22 @@ ul {
   }
 }
 
-/* Au survol, l'animation devient plus rapide */
 .hero-btn:hover:before {
   animation-duration: 0.8s;
 }
 
-/* Responsive: ajustement pour écrans de petite taille (mobile) */
+/* Responsive (mobile) */
 @media (max-width: 768px) {
   .hero-btn {
-    font-size: 16px; /* Réduit la taille de la police sur mobile */
-    padding: 10px 20px; /* Réduit l'espace autour du texte */
+    font-size: 16px; 
+    padding: 10px 20px; /
   }
 }
 
-/* Responsive: pour les écrans très petits (smartphones très petits) */
 @media (max-width: 480px) {
   .hero-btn {
-    font-size: 14px; /* Réduit encore la taille de la police */
-    padding: 8px 15px; /* Réduit l'espace autour du texte */
+    font-size: 14px;
+    padding: 8px 15px; 
   }
 }
 
@@ -263,35 +258,35 @@ ul {
 
 /* Gestion des missions du dashboard */
 /* Style général des cartes */
-/* Style général des cartes */
+
 .mission-card {
-  background: linear-gradient(135deg, #2c3e50, #34495e); /* Dégradé sombre du bleu nuit au gris foncé */
+  background: linear-gradient(135deg, #2c3e50, #34495e); 
   color: white;
-  border-radius: 12px; /* Coins arrondis pour un effet moderne */
+  border-radius: 12px; 
   padding: 2rem;
-  position: relative; /* Pour positionner le badge "EN_COURS" en absolu */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Ombre plus marquée pour un effet de profondeur */
+  position: relative; 
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); 
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .mission-card:hover {
-  transform: translateY(-10px); /* Plus marqué au survol */
-  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3); /* Ombre plus profonde au survol */
+  transform: translateY(-10px); 
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3); 
 }
 
-/* Titre de la mission */
+
 .titre {
-  text-align: center; /* Centrer le titre */
+  text-align: center; 
   font-size: 32px;
   font-weight: bold;
   color: #f1f1f1;
-  margin-top: 40px; /* Décalage pour éviter qu'il soit trop proche du badge */
+  margin-top: 40px;
   margin-bottom: 20px;
-  border-bottom: 3px solid #ffcc00; /* Ligne dorée sous le titre */
+  border-bottom: 3px solid #ffcc00; 
   padding-bottom: 10px;
 }
 
-/* Description de la mission */
+
 .mission-description {
   font-size: 18px;
   font-style: italic;
@@ -299,7 +294,7 @@ ul {
   margin-bottom: 25px;
 }
 
-/* Informations supplémentaires */
+
 .autres-informations {
   font-size: 16px;
   line-height: 1.6;
@@ -311,13 +306,13 @@ ul {
 }
 
 .autres-informations strong {
-  color: #ffcc00; /* Accent doré pour les titres des informations */
+  color: #ffcc00; 
 }
 
-/* Badge "EN_COURS" */
+/* Badge EN COURS */
 .badge-warning {
-  background-color: #ffcc00 !important; /* Couleur dorée pour l'état "EN_COURS" */
-  color: #333333 !important; /* Texte sombre pour contraster avec le fond doré */
+  background-color: #ffcc00 !important; 
+  color: #333333 !important;
   font-weight: bold;
   padding: 0.5rem 1rem;
   border-radius: 20px;
@@ -351,6 +346,14 @@ ul {
   }
 }
 
+    /* Partie statistiques */
+
+  /* Gestion des statistiques héros */
+  .background-stat{
+    /* background-color: white; */
+  }
+
+    /* Gestion des statistiques équipes */
 
     /* PARTIE HEROS */
 
