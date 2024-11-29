@@ -32,7 +32,7 @@ class SuperHeros
     #[Assert\Range(min: 0, max: 100)]
     private ?int $energyLevel = null;
 
-    // #[ORM\Column]
+    // #[ORM\Column]    
     // private ?array $reussite = null;
 
     #[ORM\Column(length: 255)]

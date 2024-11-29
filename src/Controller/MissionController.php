@@ -76,6 +76,10 @@ class MissionController extends AbstractController
     public function remove(int $id, EntityManagerInterface $em): Response
     {
         $mission=$this->missionrepository->find($id);
+        dd();
+        foreach($missions as $mission){
+            $mission->setAssignedTeam(null)  ;   
+        }
         $em->remove($mission);
         $em->flush();
         return $this->redirectToRoute('show_mission');

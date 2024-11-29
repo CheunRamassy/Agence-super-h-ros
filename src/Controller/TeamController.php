@@ -87,11 +87,8 @@ class TeamController extends AbstractController
                 } 
             }
         }
-        foreach( $missions as $mission){
-            if($mission == $team->getCurrentMission()){
-                $team->removeMission($mission);
-            }
-            
+        foreach($missions as $mission){
+            $mission->setAssignedTeam(null)  ;   
         }
         $em->remove($team);
         $em->flush();
